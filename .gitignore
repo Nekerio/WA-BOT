@@ -1,0 +1,26 @@
+# Environments
+.env
+.env.waha
+.env.*
+
+# Docker volumes / WAHA storage
+sessions/
+media/
+.sessions/
+.media/
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+env/
+venv/
+
+# Local test files
+test*.py
+test.ps1
+test_api.py
+payload.json

@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  waha:
+    image: devlikeapro/waha
+    container_name: waha
+    ports:
+      # Bind hanya ke localhost untuk mencegah akses dari luar jaringan (anti DDoS/ping of death dari publik)
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./sessions:/app/.sessions
+      - ./media:/app/.media
+    env_file:
+      - .env.waha
+    restart: always
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - TZ=Asia/Jakarta
+
+  bot:
+    build: .
+    container_name: bot
+    ports:
+      # Bind hanya ke localhost untuk mengamankan API
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - waha
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - TZ=Asia/Jakarta
