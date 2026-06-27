@@ -1,3 +1,5 @@
+**INI ADALAH PROJECT 100% DIBUAT OLEH AI ANTIGRAVITY YANG SUDAH MELALUI PROSES REVISI SAYA.** 
+
 # WAHA + Supabase RAG Bot 🤖💊
 
 Proyek ini adalah bot asisten WhatsApp pintar untuk apotek yang menggunakan pendekatan **RAG (Retrieval-Augmented Generation)**. Bot ini berjalan menggunakan **WAHA (WhatsApp HTTP API)** untuk integrasi WhatsApp, **Supabase dengan pgvector** untuk database pencarian stok obat berbasis vektor (semantic search), dan **Google Gemini / Claude (via KodeAPI)** sebagai kecerdasan buatan (LLM).
