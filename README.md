@@ -89,8 +89,3 @@ Docker akan mengunduh image WAHA, membangun container Bot Server, dan menjalanka
 
 *   **FastAPI Bot Server**: Berjalan di `http://localhost:8000` (Webhook URL: `/webhook/waha`).
 *   **WAHA Dashboard**: Dapat diakses di `http://localhost:3000` (gunakan username & password dari file `.env.waha`).
-
----
-
-## 🔒 Keamanan (Penting!)
-Jangan pernah mengunggah file `.env` atau `.env.waha` ke GitHub karena berisi API Key rahasia Anda. File `.gitignore` dalam proyek ini sudah dikonfigurasi untuk mengecualikan kedua file tersebut agar tidak sengaja terunggah ke repositori publik.
